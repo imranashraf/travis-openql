@@ -19,12 +19,12 @@ install:
   - cd deps
   - git clone https://github.com/QE-Lab/libqasm.git
   - cd libqasm
-  - pip install . 
+  - python setup.py install --user
   - cd ..
   - git clone https://github.com/QE-Lab/eQASM_Assembler.git
   - cd eQASM_Assembler/qisa-as
   - git checkout development
-  - pip install .
+  - python setup.py install --user
   - cd ../../../.
   - pip install .
 
