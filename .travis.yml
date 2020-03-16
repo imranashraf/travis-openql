@@ -17,13 +17,14 @@ before_install:
 
 install:
   - cd deps
-  - pwd
   - git clone https://github.com/QE-Lab/libqasm.git
   - cd libqasm
-  - pwd
   - pip install . 
-  - cd ../..
-  - pwd
+  - cd ..
+  - git clone https://github.com/QE-Lab/eQASM_Assembler.git
+  - cd eQASM_Assembler/qisa-as
+  - pip install .
+  - cd ../../../.
   - pip install .
 
 script: pytest
