@@ -24,7 +24,7 @@ install:
   - pip install . 
   - cd ..
   - pwd
-  - pip install .
+  - pip install ../..
 
 script: pytest
 
