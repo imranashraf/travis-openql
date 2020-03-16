@@ -1,0 +1,30 @@
+# Build files
+build
+cbuild
+dist
+openql.egg-info
+lab
+env
+
+# Temp files
+*.dot
+*.qc
+*.dat
+*.swp
+*~
+*.log
+*.so
+*.pyd
+*.pyc
+*.cache
+swig/openql.py
+swig/openql/openql.py
+swig/qutechopenql.egg-info
+
+# Test files
+test_output
+.ipynb_checkpoints
+
+docs/_build
+docs/_static
+docs/_templates
