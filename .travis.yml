@@ -16,6 +16,14 @@ before_install:
   - pip install -U pytest
 
 install:
+  - cd deps
+  - pwd
+  - git clone https://github.com/QE-Lab/libqasm.git
+  - cd libqasm
+  - pwd
+  - pip install . 
+  - cd ..
+  - pwd
   - pip install .
 
 script: pytest
@@ -24,6 +32,8 @@ addons:
   apt:
     packages:
       - swig
+      - flex
+      - bison
   homebrew:
     packages:
       - swig
