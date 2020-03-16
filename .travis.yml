@@ -22,9 +22,9 @@ install:
   - cd libqasm
   - pwd
   - pip install . 
-  - cd ..
+  - cd ../..
   - pwd
-  - pip install ../..
+  - pip install .
 
 script: pytest
 
