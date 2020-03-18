@@ -15,7 +15,6 @@ matrix:
         - python3 --version
         - pip3 install -U pip
         - pip3 install -U pytest
-        - pip3 install codecov
       install:
         - cd deps
         - git clone https://github.com/QE-Lab/libqasm.git
@@ -53,11 +52,14 @@ script: python3 -m pytest
 addons:
   apt:
     packages:
+      - cmake
       - swig
       - flex
       - bison
   homebrew:
     packages:
-      - swig
       - cmake
+      - swig
+      - flex
+      - bison
     update: true
