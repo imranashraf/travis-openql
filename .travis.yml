@@ -1,8 +1,4 @@
-language: python
-dist: xenial
-python:
-  - 3.7
-
+language: shell
 cache: pip
 
 matrix:
@@ -11,29 +7,17 @@ matrix:
       os: osx
       osx_image: xcode11.3
       language: shell
-      before_install:
+      env:
         - export PATH="/usr/local/opt/flex/bin:$PATH"
         - export LDFLAGS="-L/usr/local/opt/flex/lib:$LDFLAGS"
         - export CPPFLAGS="-I/usr/local/opt/flex/include:$CPPFLAGS"
         - export PATH="/usr/local/opt/bison/bin:$PATH"
         - export LDFLAGS="-L/usr/local/opt/bison/lib:$LDFLAGS"
-        - python3 --version
-        - pip3 install -U pip
-        - pip3 install -U pytest
-      install:
-        - cd deps
-        - git clone https://github.com/QE-Lab/libqasm.git
-        - cd libqasm
-        - pip install . 
-        - cd ..
-        - git clone https://github.com/QE-Lab/eQASM_Assembler.git
-        - cd eQASM_Assembler/qisa-as
-        - git checkout development
-        - pip install .
-        - cd ../../../.
-        - pip install .
-      script: python3 -m pytest
 
+    - name: "Python 3.7.3 on xenial"
+      os: linux
+      dist: xenial
+      language: python
 
 before_install:
   - python3 --version
@@ -52,6 +36,7 @@ install:
   - cd ../../../.
   - pip install .
 script: python3 -m pytest
+
 
 
 addons:
