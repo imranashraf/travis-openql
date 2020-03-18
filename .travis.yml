@@ -4,6 +4,7 @@ dist: xenial
 
 os:
   - linux
+  - osx
 
 python:
   - "3.6"
