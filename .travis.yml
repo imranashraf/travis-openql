@@ -12,6 +12,11 @@ matrix:
       osx_image: xcode11.3
       language: shell
       before_install:
+        - export PATH="/usr/local/opt/flex/bin:$PATH"
+        - export LDFLAGS="-L/usr/local/opt/flex/lib:$LDFLAGS"
+        - export CPPFLAGS="-I/usr/local/opt/flex/include:$CPPFLAGS"
+        - export PATH="/usr/local/opt/bison/bin:$PATH"
+        - export LDFLAGS="-L/usr/local/opt/bison/lib:$LDFLAGS"
         - python3 --version
         - pip3 install -U pip
         - pip3 install -U pytest
