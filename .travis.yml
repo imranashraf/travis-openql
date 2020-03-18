@@ -1,32 +1,16 @@
+language: python
+dist: xenial
+python:
+  - 3.6
+
 cache: pip
 
 matrix:
   include:      
-    - name: "Python 3.6.5 on Xenial"
-      python: 3.6
-      dist: xenial
-      before_install:
-        - python3 --version
-        - pip3 install -U pip
-        - pip3 install -U pytest
-      install:
-        - cd deps
-        - git clone https://github.com/QE-Lab/libqasm.git
-        - cd libqasm
-        - pip install . 
-        - cd ..
-        - git clone https://github.com/QE-Lab/eQASM_Assembler.git
-        - cd eQASM_Assembler/qisa-as
-        - git checkout development
-        - pip install .
-        - cd ../../../.
-        - pip install .
-      script: python3 -m pytest
-  include:      
     - name: "Python 3.6.5 on macOS 10.13"
       os: osx
-      osx_image: xcode9.4  # Python 3.6.5 running on macOS 10.13
-      language: shell  # 'language: python' is an error on Travis CI macOS
+      osx_image: xcode9.4
+      language: shell
       before_install:
         - python3 --version
         - pip3 install -U pip
@@ -45,6 +29,26 @@ matrix:
         - cd ../../../.
         - pip install .
       script: python3 -m pytest
+
+
+before_install:
+  - python3 --version
+  - pip3 install -U pip
+  - pip3 install -U pytest
+install:
+  - cd deps
+  - git clone https://github.com/QE-Lab/libqasm.git
+  - cd libqasm
+  - pip install . 
+  - cd ..
+  - git clone https://github.com/QE-Lab/eQASM_Assembler.git
+  - cd eQASM_Assembler/qisa-as
+  - git checkout development
+  - pip install .
+  - cd ../../../.
+  - pip install .
+script: python3 -m pytest
+
 
 addons:
   apt:
