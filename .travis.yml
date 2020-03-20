@@ -28,9 +28,11 @@ matrix:
         - choco install winflexbison3
         - choco install swig
         - choco install cmake
-        - python --version
         - python -m pip install --upgrade pip
         - pip3 install --upgrade pytest
+        - python --version
+        - cmake --version
+        - swig -version
       env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
 
 before_install:
