@@ -3,21 +3,35 @@ cache: pip
 
 matrix:
   include:      
-    - name: "Python 3.7.3 on macOS 10.14"
-      os: osx
-      osx_image: xcode11.3
-      language: shell
-      env:
-        - export PATH="/usr/local/opt/flex/bin:$PATH"
-        - export LDFLAGS="-L/usr/local/opt/flex/lib:$LDFLAGS"
-        - export CPPFLAGS="-I/usr/local/opt/flex/include:$CPPFLAGS"
-        - export PATH="/usr/local/opt/bison/bin:$PATH"
-        - export LDFLAGS="-L/usr/local/opt/bison/lib:$LDFLAGS"
+    # - name: "Python 3.7 on macOS 10.14"
+    #   os: osx
+    #   osx_image: xcode11.3
+    #   language: shell
+    #   env:
+    #     - export PATH="/usr/local/opt/flex/bin:$PATH"
+    #     - export LDFLAGS="-L/usr/local/opt/flex/lib:$LDFLAGS"
+    #     - export CPPFLAGS="-I/usr/local/opt/flex/include:$CPPFLAGS"
+    #     - export PATH="/usr/local/opt/bison/bin:$PATH"
+    #     - export LDFLAGS="-L/usr/local/opt/bison/lib:$LDFLAGS"
 
-    - name: "Python 3.7.3 on xenial"
-      os: linux
-      dist: xenial
-      language: python
+    # - name: "Python 3.7 on xenial"
+    #   os: linux
+    #   dist: xenial
+    #   language: python
+    #   python: 3.7
+
+    - name: "Python 3.5.4 on Windows"
+      os: windows
+      language: shell
+      before_install:
+        - choco install python --version 3.5.4
+        - choco install winflexbison3
+        - choco install swig
+        - choco install cmake
+        - python --version
+        - python -m pip install --upgrade pip
+        - pip3 install --upgrade pytest
+      env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
 
 before_install:
   - python3 --version
