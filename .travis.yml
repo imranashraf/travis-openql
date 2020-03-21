@@ -46,9 +46,9 @@ install:
   - cd travis-libqasm
   - pip install . 
   - cd ..
-  - git clone https://github.com/QE-Lab/eQASM_Assembler.git
-  - cd eQASM_Assembler/qisa-as
-  - git checkout development
+  - git clone https://github.com/imranashraf/travis-eQASM_Assembler.git
+  - cd travis-eQASM_Assembler/qisa-as
+  # - git checkout development
   - pip install .
   - cd ../../../.
   - pip install .
