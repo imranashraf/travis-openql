@@ -52,7 +52,7 @@ install:
   - pip install .
   - cd ../../../.
   - pip install .
-script: python -m pytest
+script: pytest
 
 
 
