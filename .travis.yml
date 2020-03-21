@@ -43,7 +43,7 @@ before_install:
 install:
   - cd deps
   - git clone https://github.com/imranashraf/travis-libqasm.git
-  - cd libqasm
+  - cd travis-libqasm
   - pip install . 
   - cd ..
   - git clone https://github.com/QE-Lab/eQASM_Assembler.git
