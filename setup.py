@@ -47,11 +47,10 @@ elif platform == "darwin":
 
 elif platform == "win32":
     print('Detected Windows OS, installing openql ... ')
-    cmd = 'cmake -G "NMake Makefiles" ..'
+    cmd = 'cmake -G "MinGW Makefiles" ..'
     proc = subprocess.Popen(cmd, shell=True)
     proc.communicate()
-    # cmd = 'nmake /M/P{}'.format(nprocs)
-    cmd = 'nmake'
+    cmd = 'mingw32-make'
     proc = subprocess.Popen(cmd, shell=True)
     proc.communicate()
     clibname = "_openql.pyd"
