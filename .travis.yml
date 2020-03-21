@@ -28,19 +28,18 @@ matrix:
         - choco install winflexbison3
         - choco install swig
         - choco install cmake
+        - choco install mingw
         - python -m pip install --upgrade pip
-        - pip3 install --upgrade pytest
+        - python -m pip install --upgrade pytest
         - python --version
         - pip --version
-        - pip3 --version
         - cmake --version
         - swig -version
       env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
 
 before_install:
-  - python3 --version
-  - pip3 install -U pip
-  - pip3 install -U pytest
+  - python -m pip install -U pip
+  - python -m pip install -U pytest
 install:
   - cd deps
   - git clone https://github.com/QE-Lab/libqasm.git
@@ -53,7 +52,7 @@ install:
   - pip install .
   - cd ../../../.
   - pip install .
-script: python3 -m pytest
+script: python -m pytest
 
 
 
