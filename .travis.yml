@@ -13,6 +13,10 @@ matrix:
         - export CPPFLAGS="-I/usr/local/opt/flex/include:$CPPFLAGS"
         - export PATH="/usr/local/opt/bison/bin:$PATH"
         - export LDFLAGS="-L/usr/local/opt/bison/lib:$LDFLAGS"
+      before_install:
+        - brew install pyenv
+        - pyenv install 3.7.3
+        - pyenv global 3.7.3
 
     - name: "Python 3.7 on xenial"
       os: linux
@@ -38,9 +42,9 @@ matrix:
     #   env: PATH=/c/Python35:/c/Python35/Scripts:$PATH
 
 before_install:
-  - python --version
   - python -m pip install -U pip
   - python -m pip install -U pytest
+  - python --version
   - pip --version
 install:
   - cd deps
