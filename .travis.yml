@@ -65,6 +65,7 @@ addons:
       - bison
   homebrew:
     packages:
+      - python3
       - cmake
       - swig
       - flex
