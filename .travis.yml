@@ -44,14 +44,14 @@ install:
   - cd deps
   - git clone https://github.com/imranashraf/travis-libqasm.git
   - cd travis-libqasm
-  - pip install . 
+  - python -m pip install . 
   - cd ..
   - git clone https://github.com/imranashraf/travis-eQASM_Assembler.git
   - cd travis-eQASM_Assembler/qisa-as
   # - git checkout development
-  - pip install .
+  - python -m pip install . 
   - cd ../../../.
-  - pip install .
+  - python -m pip install . 
 script: pytest
 
 
