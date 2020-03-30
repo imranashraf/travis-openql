@@ -40,6 +40,8 @@ matrix:
 before_install:
   - python -m pip install -U pip
   - python -m pip install -U pytest
+  - python --version
+  - pip --version
 install:
   - cd deps
   - git clone https://github.com/imranashraf/travis-libqasm.git
@@ -65,7 +67,7 @@ addons:
       - bison
   homebrew:
     packages:
-      - python3
+      - python
       - cmake
       - swig
       - flex
