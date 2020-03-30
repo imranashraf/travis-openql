@@ -14,7 +14,7 @@ matrix:
         - export PATH="/usr/local/opt/bison/bin:$PATH"
         - export LDFLAGS="-L/usr/local/opt/bison/lib:$LDFLAGS"
       before_install:
-        - brew install pyenv
+        - brew upgrade pyenv
         - pyenv install 3.7.3
         - pyenv global 3.7.3
 
